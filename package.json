@@ -1,0 +1,15 @@
+{
+  "name": "ttb-settings",
+  "version": "0.1.0",
+  "homepage": "http://thethingbox.io/",
+  "dependencies": {
+    "mkdirp": "0.5.1",
+    "uuid": "3.3.2"
+  },
+  "contributors": [{
+    "name": "Digital Airaways"
+  }],
+  "engines": {
+    "node": ">=8"
+  }
+}
