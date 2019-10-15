@@ -183,8 +183,8 @@ class SettingsTTB{
 
       if(t===null){
         this.getPiModel().then( _pitype => {
-          setting_persistence.id = this._instance
-          setting_persistence.update = {
+          settings.id = this._instance
+          settings.update = {
             url: this._updateApi,
             type: _pitype
           }
