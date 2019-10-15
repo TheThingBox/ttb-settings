@@ -81,7 +81,7 @@ class SettingsTTB{
       promises.push(this.checkRSAPrivFile())
       promises.push(this.checkRSAPubFile())
 
-      Promise.all(promises).then(function(values) {
+      Promise.all(promises).then((values)  => {
         if(values.filter(e => e == 'ok').length !== promises.length){
           this.createRSAKey().then().catch().finally(_=>{
             resolve()
@@ -95,10 +95,10 @@ class SettingsTTB{
 
   createRSAKey(){
     return new Promise( (resolve, reject) => {
-      fs.unlink(this._rsa.privateKey, function(err) {
-        fs.unlink(this._rsa.publicKey, function(err) {
-          cp.exec(`openssl genrsa -out ${this._rsa.privateKey} 2048`, function(err, stdout, stderr) {
-            cp.exec(`openssl rsa -in ${this._rsa.privateKey} -pubout -out ${this._rsa.publicKey}`, function(err, stdout, stderr) {
+      fs.unlink(this._rsa.privateKey, (err) => {
+        fs.unlink(this._rsa.publicKey, (err) => {
+          cp.exec(`openssl genrsa -out ${this._rsa.privateKey} 2048`, (err, stdout, stderr) => {
+            cp.exec(`openssl rsa -in ${this._rsa.privateKey} -pubout -out ${this._rsa.publicKey}`, (err, stdout, stderr) => {
               resolve();
             });
           });
@@ -221,7 +221,7 @@ class SettingsTTB{
         resolve(this._pitype)
       }
       else{
-        fs.readFile('/proc/cpuinfo', 'utf8', function(err, data){
+        fs.readFile('/proc/cpuinfo', 'utf8', (err, data) => {
             if(!err){
                 let _pitype = { type: "" };
                 let revision
