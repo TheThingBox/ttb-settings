@@ -161,7 +161,7 @@ class SettingsTTB{
       } catch(e){}
 
       if(t===null){
-        settings.rsa = this.rsa
+        settings.rsa = this._rsa
         this.createSettings(this._userDirSettings, settings)
         .then().catch().finally(_ => {
           resolve(settings)
