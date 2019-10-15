@@ -59,11 +59,11 @@ class SettingsTTB{
     return new Promise( (resolve, reject) => {
       this.checkRSAKey()
       .then(_ => {
-        return getUserSettings()
+        return this.getUserSettings()
       })
       .then(userSettings => {
         this._settings = Object.assign({}, userSettings)
-        return getPersistedSettings()
+        return this.getPersistedSettings()
       })
       .then(persistedSettings => {
         this._settings = Object.assign({}, this._settings, persistedSettings)
